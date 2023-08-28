@@ -30,7 +30,7 @@ module "blog_sg" {
   version = "5.1.0"
 
   vpc_id = data.aws_vpc.default.id
-  name   = "blog"
+  name   = "blog_new"
   ingress_rules       = ["https-443-80","http-80-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules        = ["all-all"]
@@ -39,11 +39,4 @@ module "blog_sg" {
 
 data "aws_vpc" "default" {
   default = true
-}
-
-resource "aws_security_group" "blog" {
-  name        = "blog"
-  description = "Learning Terraform Security Group"
-
-  vpc_id = data.aws_vpc.default.id
 }
